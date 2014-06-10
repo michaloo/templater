@@ -1,0 +1,15 @@
+#!/bin/bash
+
+export TEST_A="This is test A"
+export TEST_B="This is test B"
+
+TEST=`cat test/test.txt | go run templater.go`
+RESULT=`cat test/result.txt`
+
+if [ "$TEST" == "$RESULT" ]; then
+    echo "passed"
+    exit 0
+fi
+
+echo $TEST | diff - test/result.txt
+exit 1

@@ -1,0 +1,7 @@
+
+{{getenv "TEST_A"}}
+{{getenv "TEST_B"}}
+
+{{if equal (getenv "HOME") "/root"}}
+development
+{{end}}
